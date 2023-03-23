@@ -7,5 +7,5 @@ public interface Human {
     static void lungs(){
         System.out.println("Breathing human");
     }
-    abstract void kidney();
+    void kidney();
 }

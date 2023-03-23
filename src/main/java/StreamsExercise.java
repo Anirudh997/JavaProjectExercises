@@ -1,7 +1,9 @@
 import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamsExercise {
     public static void main(String[] args) {
@@ -37,6 +39,71 @@ public class StreamsExercise {
         Predicate<Integer> pr = a -> (a>10); // Creating Predicate;
         System.out.println(pr.test(11));
 
+        //Converting array to list
+        int[] inarr = {1,2,3,5,5};
+        List<Integer> collect = Arrays.stream(inarr).boxed().collect(Collectors.toList());
+        System.out.println(collect);
 
+        //Map of numbers with count of its duplicates
+        Map<Integer, Long> duplicates = collect.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        duplicates.entrySet().stream().filter(e->e.getValue()>1).map(e->e.getKey()).forEach(System.out::println);
+
+        int asInt = Arrays.stream(inarr).max().getAsInt();
+        System.out.println(asInt);
+
+        //Converting list to array
+        int[] ints = collect.stream().mapToInt(Integer::intValue).toArray();
+
+        //Find Duplicate character in a String
+        String word ="HelpMe";
+        Map<Character, Long> frequencyMap = word.chars().mapToObj(c -> (char)c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Character character = frequencyMap.entrySet().stream().filter(e -> e.getValue() > 1).map(e->e.getKey()).findFirst().orElse(null);
+        System.out.println(character);
+
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee(1,10000));
+        employeeList.add(new Employee(2,50000));
+        employeeList.add(new Employee(3,1000));
+        employeeList.add(new Employee(4,25000));
+        employeeList.add(new Employee(5,1500));
+        employeeList.add(new Employee(6,11000));
+        employeeList.add(new Employee(7,100000));
+
+        employeeList.subList(0,2).clear();
+
+        //Employes lists in desc order of salary
+        List<Employee> EmpList = employeeList.stream().sorted((e1, e2) -> e2.salary - e1.salary).collect(Collectors.toList());
+        System.out.println(EmpList);
+        //List of salaries in desc order
+        List<Integer> salaries = employeeList.stream().sorted((e1, e2) -> e1.salary - e2.salary).map(e -> e.salary).collect(Collectors.toList());
+        System.out.println(salaries);
+        //salaries greater than 20000
+        employeeList.stream().map(e->e.salary+5000).filter(e->e>20000).forEach(System.out::println);
+
+        BiFunction<Integer, String, String> biFunction = (a, b) -> "The value is " + a + " and the string is " + b;
+        String apply = biFunction.apply(5, String.valueOf(6));
+        System.out.println(apply);
+
+
+    }
+
+
+    static class Employee{
+        private int id;
+        private int salary;
+
+        public Employee(int id, int salary){
+            this.id=id;
+            this.salary=salary;
+        }
+
+        @Override
+        public String toString() {
+            return "Employee{" +
+                    "id=" + id +
+                    ", salary=" + salary +
+                    '}';
+        }
     }
 }

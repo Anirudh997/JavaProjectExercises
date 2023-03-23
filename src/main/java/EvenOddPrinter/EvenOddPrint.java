@@ -5,9 +5,6 @@ public class EvenOddPrint {
     int num;
     int count=0;
 
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public EvenOddPrint(int num){
         this.num=num;
