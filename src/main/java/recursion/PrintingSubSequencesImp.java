@@ -11,7 +11,7 @@ public class PrintingSubSequencesImp {
         Stack<Integer> result = new Stack<>();
 
         //printing all subsequences
-        subseq(arr,arr.length,0, result);
+        //subseq(arr,arr.length,0, result);
 
         //printing all subsequnces whose sum is 2
         int[] arr2 = {1,2,1};
@@ -25,7 +25,7 @@ public class PrintingSubSequencesImp {
         int sum1 =2;
         int val1=0;
         Stack<Integer> result3 = new Stack<>();
-        //subseqWithSum3WithOneSeq(arr3,arr3.length,0,result3,sum1, val1);
+        subseqWithSum3WithOneSeq(arr3,arr3.length,0,result3,sum1, val1);
     }
 
     private static void subseqWithSum3WithOneSeq(int[] arr3, int length, int i, Stack<Integer> result3, int sum1, int val1) {

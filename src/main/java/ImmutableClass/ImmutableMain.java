@@ -13,10 +13,10 @@ public class ImmutableMain {
         System.out.println("Name:"+employee.getName());
         System.out.println("Email:"+employee.getEmail());
         System.out.println("Employee Address::::");
-        System.out.println("Street:"+address.getStreet());
-        System.out.println("ZipCode:"+address.getZipCode());
-        System.out.println("AddressLine1:"+address.getAddressLine1());
-        System.out.println("AddressLine2:"+address.getAddressLine2());
+        System.out.println("Street:"+employee.getAddress().getStreet());
+        System.out.println("ZipCode:"+employee.getAddress().getZipCode());
+        System.out.println("AddressLine1:"+employee.getAddress().getAddressLine1());
+        System.out.println("AddressLine2:"+employee.getAddress().getAddressLine2());
         //Let's try to change state of this employee object
         System.out.println("------------------------------------------------------------");
 
@@ -29,9 +29,9 @@ public class ImmutableMain {
         System.out.println("Name:"+employee.getName());
         System.out.println("Email:"+employee.getEmail());
         System.out.println("Employee Address::::");
-        System.out.println("Street:"+address.getStreet());
-        System.out.println("ZipCode:"+address.getZipCode());
-        System.out.println("AddressLine1:"+address.getAddressLine1());
-        System.out.println("AddressLine2:"+address.getAddressLine2());
+        System.out.println("Street:"+employee.getAddress().getStreet());
+        System.out.println("ZipCode:"+employee.getAddress().getZipCode());
+        System.out.println("AddressLine1:"+employee.getAddress().getAddressLine1());
+        System.out.println("AddressLine2:"+employee.getAddress().getAddressLine2());
     }
 }

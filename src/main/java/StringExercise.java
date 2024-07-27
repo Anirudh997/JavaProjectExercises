@@ -86,5 +86,14 @@ public class StringExercise {
         //String s4 = str.chars().mapToObj(c -> (char) c).reduce("", (s, c) -> c + s, (s1, s2) -> s2 + s1).toString();
         //System.out.println(s4);
 
+        StringBuilder sb1 = new StringBuilder("buffering");
+        sb1.replace(2,7,"BUFFER");
+        sb1.delete(2,4);
+        System.out.println(sb1.substring(1,5));
+
+        String w = new String("abc");
+        w.concat("xyz");
+        System.out.println(w);
+
     }
 }

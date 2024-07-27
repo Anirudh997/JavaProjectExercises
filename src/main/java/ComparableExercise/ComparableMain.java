@@ -3,6 +3,7 @@ package ComparableExercise;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ComparableMain {
     public static void main(String[] args) {
@@ -17,7 +18,9 @@ public class ComparableMain {
         ls.add(e2);
         ls.add(e3);
 
+        List<Employee> employees = ls.stream().sorted((em1, em2) -> em2.getAge() - em1.getAge()).collect(Collectors.toList());
         Collections.sort(ls);
+        System.out.println(employees);
         System.out.println(ls);
 
     }

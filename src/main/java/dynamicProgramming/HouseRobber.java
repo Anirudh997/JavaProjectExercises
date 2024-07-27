@@ -6,8 +6,7 @@ Given an integer array nums representing the amount of money of each house, retu
  */
 public class HouseRobber {
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4};
-        System.out.println(rob(nums));
+        //System.out.println(rob(nums));
     }
 
     private static int rob(int[] nums) {
@@ -33,6 +32,7 @@ public class HouseRobber {
         if(ind <nums.length-1){
             odd = nums[ind+1] + robTest(nums,ind+3,dp);
         }
+
 
         //Step3
         //Returning the max amount

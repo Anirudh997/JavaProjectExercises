@@ -42,5 +42,14 @@ public class StringFile {
         String word = "Anirudh Luffy";
         String reduce = word.chars().mapToObj(c -> String.valueOf((char) c)).reduce("", (c1, c2) -> c2 + c1);
         System.out.println(reduce);
+
+        String a=new String("hello");
+        String b = new String("hello");
+        if(a!=b) System.out.println("False by ==");
+        if(a.equals(b)){
+            System.out.println("true by equals");
+            System.out.println(a.hashCode());
+            System.out.println(b.hashCode());
+        }
     }
 }

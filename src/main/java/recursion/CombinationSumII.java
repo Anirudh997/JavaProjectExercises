@@ -17,17 +17,18 @@ public class CombinationSumII {
     }
 
     private static void comboSum(int[] arr, int length, int target, int ind, List<List<Integer>> lists, ArrayList<Integer> ds) {
-        if(target==0){
-            lists.add(new ArrayList<>(ds));
+
+        if(ind>arr.length-1) {
+            if (target == 0) {
+                lists.add(new ArrayList<>(ds));
+            }
             return;
         }
-        for(int i=ind;i<length;i++){
-            if(i>ind && arr[i]==arr[i-1])continue;
-            if(arr[i]>target)break;
-
-            ds.add(arr[i]);
-            comboSum(arr, length, target-arr[i], i+1, lists, ds);
+        if(target>=arr[ind]){
+            ds.add(arr[ind]);
+            comboSum(arr,length,target-arr[ind],ind+1,lists,ds);
             ds.remove(ds.size()-1);
         }
+        comboSum(arr,length,target,ind+1,lists,ds);
     }
 }

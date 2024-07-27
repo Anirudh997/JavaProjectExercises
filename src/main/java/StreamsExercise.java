@@ -44,8 +44,13 @@ public class StreamsExercise {
         List<Integer> collect = Arrays.stream(inarr).boxed().collect(Collectors.toList());
         System.out.println(collect);
 
+        //second maximum
+        int second_max = Arrays.stream(inarr).distinct().sorted().skip(inarr.length-2).findFirst().getAsInt();
+        System.out.println("Second min in arr is " + second_max);
+
         //Map of numbers with count of its duplicates
         Map<Integer, Long> duplicates = collect.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(duplicates);
         duplicates.entrySet().stream().filter(e->e.getValue()>1).map(e->e.getKey()).forEach(System.out::println);
 
         int asInt = Arrays.stream(inarr).max().getAsInt();

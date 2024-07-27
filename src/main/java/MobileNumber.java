@@ -14,7 +14,7 @@ public class MobileNumber {
             for(Integer i=0;i<arr.length;i++){
                 String a = arr[i];
                 if(arr[i].contains(s)){
-                    i+=2;
+                    i+=1;
                     for(int j=0;j<=a.lastIndexOf(s);j++){
                         sb.append(i.toString());
                     }

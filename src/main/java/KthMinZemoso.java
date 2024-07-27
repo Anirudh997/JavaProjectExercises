@@ -16,8 +16,9 @@ public class KthMinZemoso {
 
 
         Arrays.stream(input).forEach(System.out::print);
+        System.out.println();
 
-        int array_too_small = Arrays.stream(input).sorted().limit(5).skip(4).findFirst().orElseThrow(() -> new IllegalArgumentException("Array too small"));
+        int array_too_small = Arrays.stream(input).sorted().skip(5).findFirst().orElseThrow(() -> new IllegalArgumentException("Array too small"));
         System.out.println(array_too_small);
     }
 }
